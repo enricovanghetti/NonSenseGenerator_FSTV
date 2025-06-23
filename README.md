@@ -78,8 +78,6 @@ NonSenseGenerator-thymeleafv/
 │  │  │  ├─ credentials.json
 │  ├─ test/java/com/ProjectApp/NonSenseGenerator/
 │  │  ├─ NonSenseGeneratorApplicationTests.java
-├─ target/
-│  ├─ .class java files and other build files
 ├─ mvnw.xml
 ├─ mvnw.cmd
 ├─ pom.xml
@@ -96,8 +94,6 @@ SyntaxTree_maven_universal/
 │  │  │  ├─ SyntaxTreeController.java
 │  │  ├─ resources/
 │  │  │  ├─ application.properties
-├─ target/
-│  ├─ .class java files and other build files
 ├─ tools/
 │  ├─ .exe di versioni OS specifiche di jq
 ├─ input.json

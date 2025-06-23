@@ -117,7 +117,9 @@ README.md
 - Dopo aver clonato le repository, da terminale, posizionarsi nella cartella *"/NonSenseGenerator-thymeleafv"* 
 - Eseguire il comando `mvn spring-boot:run` per avviare il processo di build dei file sorgente ed avvio del server SpringBoot
 - In caso di packages mancanti, eseguire il comando `mvn clean install` per scaricare tutte le componenti necessarie in automatico e ripetere il punto precedente
-- La piattaforma sarà disponibile in locale, alla porta 8080; per accedervi basterà andare in un qualunque browser ed immettere nella barra di ricerca `http://localhost:8080` 
+- La piattaforma sarà disponibile in locale, alla porta 8080; per accedervi basterà andare in un qualunque browser ed immettere nella barra di ricerca `http://localhost:8080`
+> Le istruzioni sopra riportate sono valide per tutti i principali sistemi operativi.
+> La piattaforma è stata testata con successo su Windows 11, macOS Sequoia e Debian 11.
 
 
 ## Report di Unit Testing

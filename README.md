@@ -55,8 +55,6 @@ NonSenseGenerator-thymeleafv/
 │  │  │  │  ├─ WordDictionaries.java
 │  │  │  ├─ service/
 │  │  │  │  ├─ NonsenseService.java
-│  │  │  ├─ util/
-│  │  │  │  ├─ ApiKeyLoader.java
 │  │  │  ├─ Application.java
 │  │  │  ├─ NSGController.java
 │  │  ├─ resources/

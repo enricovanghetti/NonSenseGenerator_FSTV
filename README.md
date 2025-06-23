@@ -126,6 +126,14 @@ README.md
 
 Disponibile nel sito --> [Unit Tests](https://lourenzi.github.io/NSG/TestResults.html)
 
+## Report di System Test
+
+Disponibile in --> [System Test Report](https://lourenzi.github.io/NSG/SystemTestReport.pdf)
+
+## Design Document
+
+Disponibile in --> [Design Document](https://lourenzi.github.io/NSG/DesignDocument.pdf)
+
 ## Note
 
 Anche se in compilazione ed esecuzione "filerà tutto liscio", nel terminale potrebbe comparire una serie di errori, ma questi sono inevitabili:

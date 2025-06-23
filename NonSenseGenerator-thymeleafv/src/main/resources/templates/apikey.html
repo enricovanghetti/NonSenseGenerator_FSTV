@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Key Setup</title>
+  <style>
+    body {
+      background-color: #000; /*sfondo nero*/
+      color: #fff; /*testo bianco*/
+      font-family: sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: #000;
+      padding: 30px;
+      border: 2px solid gray;
+      border-radius: 15px;
+      text-align: center;
+      width: 90%;
+      max-width: 500px;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 15px;
+      border: none;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 15px;
+      background-color: green;
+      color: white;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:disabled {
+      background-color: #444;
+      color: #999;
+    }
+    #errorMsg {
+      color: red;
+      margin-top: 10px;
+      display: none; /*inizialmente nascosto*/
+    }
+    .help-link {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #3399ff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Insert Google NLP API Key</h2>
+    <input type="password" id="apiKeyInput" placeholder="Enter your API key"> <!--campo input-->
+    <button id="submitBtn" onclick="submitApiKey()">Verify</button> <!--pulsante submit-->
+    <p id="errorMsg">Invalid API key. Please try again.</p> <!--messaggio errore-->
+
+    <a href="https://console.cloud.google.com/apis/credentials" target="_blank" class="help-link">
+      Where to find API NLP Key?
+    </a>
+  </div>
+
+  <script>
+    function submitApiKey() {
+      const btn = document.getElementById("submitBtn");
+      const input = document.getElementById("apiKeyInput");
+      const errorMsg = document.getElementById("errorMsg");
+      const key = input.value.trim();
+
+      if (!key) return; //non inviare se vuoto
+
+      btn.innerText = "Validating...";
+      btn.disabled = true;
+      errorMsg.style.display = "none";
+
+      fetch("/validate-key", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ apiKey: key }) //invia api key
+      })
+      .then(res => {
+        if (res.ok) {
+          btn.innerText = "✓";
+          setTimeout(() => window.location.href = "/", 500); //redirect
+        } else {
+          input.value = "";
+          errorMsg.style.display = "block"; //mostra errore
+          btn.innerText = "Verify";
+          btn.disabled = false;
+        }
+      })
+      .catch(() => {
+        input.value = "";
+        errorMsg.style.display = "block";
+        btn.innerText = "Verify";
+        btn.disabled = false;
+      });
+    }
+  </script>
+</body>
+</html>

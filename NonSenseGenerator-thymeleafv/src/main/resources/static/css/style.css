@@ -1,0 +1,128 @@
+body {
+  background-color: #000;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 40px 8.5vw;
+  gap: 3vw;
+}
+.title {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  width: 83%;
+  font-size: 4vw;
+  margin: 40px auto 0 auto;
+  letter-spacing: 0.1em;
+}
+.scramble {
+  display: inline-block;
+  font-size: inherit;
+  font-weight: inherit;
+}
+.box {
+  background-color: #000;
+  border: 2px solid gray;
+  border-radius: 20px;
+  width: 40vw;
+  height: 300px;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+textarea, .output {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  border: none;
+  font-size: 1em;
+  resize: none;
+  outline: none;
+}
+textarea {
+  color: white;
+}
+textarea::placeholder {
+  color: lightgray;
+}
+.output {
+  border: none;
+  pointer-events: auto;
+  color: white;
+  overflow-y: auto;
+}
+.output::-webkit-scrollbar {
+  width: 8px;
+}
+.output::-webkit-scrollbar-track {
+  background: transparent;
+}
+.output::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 4px;
+}
+.controls-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 8.5vw 0 8.5vw;
+  gap: 3vw;
+}
+.left-control, .right-control {
+  width: 40vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.left-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.generate-button, .copy-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 15px;
+  font-size: 1em;
+  cursor: pointer;
+  width: 150px;
+  text-align: center;
+}
+.Syntactic-Tree-container {
+  width: 83%;
+  margin: 20px auto;
+  text-align: center;
+  font-size: 1em;
+}
+#treeImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+select {
+  padding: 5px;
+  font-size: 1em;
+  border-radius: 10px;
+}
+.glow-animation {
+  border: 2px solid white;
+  border-radius: 20px;
+  box-shadow: 0 0 10px white;
+  animation: glowCycle 1.5s linear forwards;
+}
+@keyframes glowCycle {
+  0% { box-shadow: 0 0 0 white; }
+  25% { box-shadow: 0 0 5px white; }
+  50% { box-shadow: 0 0 10px white; }
+  75% { box-shadow: 0 0 15px white; }
+  100% { box-shadow: 0 0 20px white; }
+}

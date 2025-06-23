@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NonSenseGenerator</title>
+  <link rel="stylesheet" href="/css/style.css"> <!--css principale-->
+</head>
+<body th:attr="data-init=${isInitialLoad}"> <!--flag caricamento iniziale-->
+
+  <!--titolo animato o statico-->
+  <div class="title" id="title" th:if="${isInitialLoad}"></div>
+  <div class="title" th:unless="${isInitialLoad}">NonSenseGenerator</div>
+
+  <!--contenitore principale-->
+  <div id="generatorForm">
+    <div class="container">
+      <!--input utente-->
+      <div class="box" title="Write here the word or the sentence you want to randomize">
+        <textarea id="inputText" name="inputText" placeholder="Write here..."
+                  th:text="${inputText}"></textarea>
+      </div>
+
+      <!--output frasi generate-->
+      <div id="outputBox" class="box" title="Here you'll see the generated sentence or sentences">
+        <div id="outputText" class="output" th:utext="${nonsense}"></div>
+      </div>
+    </div>
+
+    <!--controlli input-->
+    <div class="controls-container">
+      <div class="left-control">
+        <div class="left-label">
+          <label for="sentenceCount">How many sentences do you need?</label>
+          <select id="sentenceCount" name="sentenceCount">
+            <option th:each="i : ${#numbers.sequence(1,9)}"
+                    th:value="${i}" th:text="${i}"
+                    th:selected="${i} == ${sentenceCount}">1</option>
+          </select>
+        </div>
+        <button class="generate-button" type="button" id="generateBtn">Generate output</button>
+      </div>
+
+      <!--bottone copia-->
+      <div class="right-control">
+        <button class="copy-button" type="button" onclick="onCopyClick()" id="copyBtn">Copy output</button>
+      </div>
+    </div>
+  </div>
+
+  <!--pulsante per albero sintattico-->
+  <div class="Syntactic-Tree-container" style="margin-top: 20px; text-align: center;">
+    <button type="button" id="generateTreeBtn" class="generate-button" style="background-color: green; width: 250px;">Generate Input Syntax Tree</button>
+  </div>
+
+  <!--contenitore immagine albero-->
+  <div id="treeImageContainer" class="Syntactic-Tree-container" style="display: none;">
+    <h3 style="text-align: center;">Input Syntactic Tree</h3>
+    <div>
+      <img id="treeImg"
+           src="/tree.png"
+           alt="Syntax Tree"
+           style="display: none; margin-left: auto; margin-right: auto; max-width: 100%;">
+    </div>
+  </div>
+
+  <!--script js-->
+  <script src="/js/script.js"></script>
+</body>
+</html>
